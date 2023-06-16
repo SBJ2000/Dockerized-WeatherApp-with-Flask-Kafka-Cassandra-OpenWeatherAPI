@@ -77,3 +77,19 @@ He can consult his favorites cities:
 
 And that's his history page :
 ![History Interface](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/History.png)
+
+## Additional Information
+For additionnal information you can read the report in the report folder.
+
+## Conclusion
+In conclusion, the Dockerized Weather web application is a comprehensive project that utilizes various modern technologies to provide a user-friendly weather information platform. The project combines Python, Flask, Kafka, and Cassandra to create a scalable and efficient application architecture.
+
+By containerizing the application using Docker, the project ensures easy deployment and portability across different environments. This allows for seamless setup and scalability, making it suitable for both development and production environments.
+
+The application includes advanced features such as email notifications, history tracking, recommendation system, and feed management using Kafka. These features enhance the user experience and provide valuable functionalities for weather data management.
+
+The project follows agile development practices, with sprints and adaptation of the Scrum methodology. This approach ensures iterative development and continuous improvement throughout the project lifecycle.
+
+The installation and usage instructions provided in the README guide users through the necessary prerequisites and steps to run the application using Docker containers. The project also highlights the importance of proficiency in Python, Flask, Docker, Kafka, Cassandra, and API integration.
+
+Overall, the Dockerized Weather web application project showcases a robust architecture, advanced features, and a user-friendly interface. It serves as an excellent example for those interested in building weather applications using modern technologies and containerization.
