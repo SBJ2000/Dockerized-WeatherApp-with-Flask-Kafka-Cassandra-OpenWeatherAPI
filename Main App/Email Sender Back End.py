@@ -16,7 +16,7 @@ import schedule
 import time
 import subprocess
 
-api_key = '5fefa376e3593b40bebd1cef59efbf95'
+api_key = ''
 
 
 def get_weather_data(city):
@@ -55,8 +55,8 @@ def send_email():
     # Informations d'identification pour le serveur SMTP
     smtp_server = 'smtp.gmail.com'
     port = 587
-    username = '2ingidl1isi@gmail.com'
-    password = 'rihnpblutdndxvof'
+    username = ''
+    password = ''
 
     # Loop through all the users and send them an email
     for user in all_users:

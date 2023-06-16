@@ -29,7 +29,7 @@ producer = KafkaProducer(bootstrap_servers=bootstrap_servers)
 # Initialisation du consommateur Kafka
 consumer = KafkaConsumer(topic, bootstrap_servers=bootstrap_servers)
 
-api_key = '5fefa376e3593b40bebd1cef59efbf95'
+api_key = ''
 
 def get_weather_data(city):
     weather_data = requests.get(
