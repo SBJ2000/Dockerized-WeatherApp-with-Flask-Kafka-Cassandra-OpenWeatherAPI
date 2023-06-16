@@ -60,3 +60,20 @@ Access your web application by opening a web browser and entering the appropriat
 
 It's important to have this librairies included in your requirement file (you do not have to install them using pip locally beacause you are working with Docker):
 ![Libs](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/libs.png)
+
+### Usage
+Let's have a look on the project with some screenshoots from inside, and for that we will move directly for the part of the identified user (has more features):
+And for that he have to log in :
+![Log In Interface](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/LogIn.png)
+
+That what an identified user see when he log in: 
+![User Interface](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/IUInterface.png)
+
+And that's the interface when he search on a specific city:
+![Search Interface](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/Search.png)
+
+He can consult his favorites cities:
+![Fav Interface](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/Fav.png)
+
+And that's his history page :
+![History Interface](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/History.png)
