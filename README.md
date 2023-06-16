@@ -18,3 +18,45 @@ The application is designed for 2 types of users , and each of them has a specif
 ## Installation & Usage
 
 ### Prerequisites:
+![Python](https://img.shields.io/badge/Language-Python-blue)
+
+    Python: Proficiency in Python programming language, including knowledge of data types, functions, modules, and libraries.
+![Flask](https://img.shields.io/badge/Framework-Flask-blue)
+
+    Flask: Understanding of Flask framework concepts, such as routing, templates, forms, and RESTful API development.
+
+![Docker](https://img.shields.io/badge/Tool-Docker-blue)
+
+    Docker: Knowledge of Docker concepts, including containerization, Dockerfile, Docker Compose, and container orchestration.
+
+![Kafka](https://img.shields.io/badge/Tool-Kafka-red)
+
+    Kafka: Understanding of Kafka messaging system, including topics, producers, consumers, and message processing.
+
+![Cassandra](https://img.shields.io/badge/Database-Cassandra-blue)
+
+    Cassandra: Familiarity with Cassandra NoSQL database, including data modeling, querying, and configuration.
+
+![API](https://img.shields.io/badge/API-Development-green)
+
+    API Integration: Experience in integrating external APIs, specifically the Open Weather API, and handling data retrieval and processing.
+
+
+![Visual Studio Code](https://img.shields.io/badge/IDE-Visual%20Studio%20Code-blue)
+
+    Integrated Development Environment (IDE): Choose an IDE of your preference for Python and Flask development, such as Visual Studio Code.
+
+### Installation:
+After installing Docker on your machine and having the project you need to redirect to the folder that contain the docker compose to build the Docker images for your application using the docker-compose command:
+
+docker-compose build
+
+Once the images are built, you can start the Docker containers using the following command:
+
+docker-compose up
+This command will start all the services defined in your docker-compose.yml file.
+
+Access your web application by opening a web browser and entering the appropriate URL (Note that you acces acces the URL from the docker desktop if you simply click on the url of the container)
+
+It's important to have this librairies included in your requirement file (you do not have to install them using pip locally beacause you are working with Docker):
+![Libs](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/libs.png)
