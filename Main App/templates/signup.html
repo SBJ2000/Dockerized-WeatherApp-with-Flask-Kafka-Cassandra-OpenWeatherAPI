@@ -1,0 +1,72 @@
+<html>
+        <head>
+            <title>Weather App</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+            <link rel="stylesheet" href="https://unpkg.com/@geoapify/leaflet-address-search-plugin@^1/dist/L.Control.GeoapifyAddressSearch.min.css"></link>
+            <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+            <style>
+                body {
+                    background-image: url('/static/background.jpg');
+                    background-size: cover;
+                    
+                }
+            </style>
+        </head>
+        <body>    
+            <section class="vh-100">
+                <div class="container h-100">
+                  <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-lg-12 col-xl-11">
+                      <div class="card text-black" style="border-radius:25px;">
+                        <div class="card-body p-md-5">
+                          <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-1">
+                              <img src="/static/signup.svg" class="img-fluid" alt="Sample image">
+                            </div>
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-2">
+                                <p class="text-center text-start h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                                <form method="POST" action="/signupsucces" class="mx-1 mx-md-4">
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                  <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                  <div class="form-outline flex-fill mb-0">
+                                    <input type="text" id="Name" name="Name" class="form-control" />
+                                    <label class="form-label" for="Name">Your Name</label>
+                                  </div>
+                                </div>
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                  <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                                  <div class="form-outline flex-fill mb-0">
+                                    <input type="email" id="Email" name="Email" class="form-control" />
+                                    <label class="form-label" for="Email">Your Email</label>
+                                  </div>
+                                </div>
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                  <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                                  <div class="form-outline flex-fill mb-0">
+                                    <input type="password" id="Password" name="Password" class="form-control" />
+                                    <label class="form-label" for="Password">Password</label>
+                                  </div>
+                                </div>
+                                <div class="d-flex flex-row align-items-center mb-4">
+                                  <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                  <div class="form-outline flex-fill mb-0">
+                                    <input type="password" id="form3Example4cd" class="form-control" />
+                                    <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                                  </div>
+                                </div>
+                                <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                  <button type="submit" class="btn btn-primary btn-lg">Register</button>
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                    </div>  
+                </div>  
+            </section>
+            <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+            <script src="https://unpkg.com/@geoapify/leaflet-address-search-plugin@^1/dist/L.Control.GeoapifyAddressSearch.min.js"></script>
+            <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>    
+        </body>
+    </html>

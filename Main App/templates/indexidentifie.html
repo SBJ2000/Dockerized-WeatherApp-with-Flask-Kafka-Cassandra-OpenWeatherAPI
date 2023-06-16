@@ -1,0 +1,201 @@
+{% if nom %}
+    <html>
+        <head>
+            <title>Weather App</title>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+            <link rel="stylesheet" href="https://unpkg.com/@geoapify/leaflet-address-search-plugin@^1/dist/L.Control.GeoapifyAddressSearch.min.css"></link>
+            <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+            <style>
+                body {
+                    background-image: url('/static/background.jpg');
+                    background-size: cover;
+                    
+                }
+                /* styles CSS pour la carte */
+                .wrap{
+                    width: 1200px;
+                    margin:30px 40px;
+                    margin-bottom: 30px;
+                    display: grid;
+                    grid-gap: 50px;
+                    grid-template-columns: 300px auto;
+                }
+
+                .form input{
+                    width: 120%;
+                    height: 9%;
+                    border: none;
+                    padding: 5px;
+                    font-size: 1em;
+                    outline: none;
+                    margin-bottom: 5px;
+                    background: #ddd;
+                    border-radius: 10px;
+                    box-sizing: border-box;
+                    text-transform: capitalize;
+                    -webkit-transition: all 0.5s ;
+                    -moz-transition: all 0.5s ;
+                    -ms-transition: all 0.5s ;
+                    -o-transition: all 0.5s ;
+                    transition: all 0.5s ;
+                }
+                .form input:focus{
+                    background: #aaa;
+                }
+                .form .form__btn{
+                    color: #fff;
+                    background: rgb(63, 192, 46);
+                }
+                #map{
+                    width: 126%;
+                    height: 500px;
+                }
+            </style>
+        </head>
+        <body>                         
+            <form method="POST" action="/weatheridentifie">
+                <input  type="hidden" name="nomuser" id="nomuser" value="{{ nom }}">
+                <input  type="hidden" name="iduser" id="iduser" value="{{ iduser }}">
+                <input  type="hidden" name="email" id="email" value="{{ email }}">
+                <input   type="hidden" name="fav_cities" id="fav_cities" value="{{ fav_cities }}">
+                <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+                    <div style="margin-left:20px;margin-top:7px;">
+                        <span><img src="/static/icone.png" alt="Icon"width="50" height="50"></span>
+                        <label style="margin-left: 500px;font-family:Lucida Handwriting" for="city" >Enter city:</label>
+                        <input class="form-control-sm mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="city" name="city">
+                        <button type="submit" class="btn-sm btn-outline-primary my-2 my-sm-0" >Search</button>
+                        <div class="btn-group"style="margin-left: 362px;">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{nom}}
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-sm">
+                            <a class="dropdown-item" href="{{ url_for('history', nomuser=nomuser, iduser=iduser, email=email) }}">my history</a>
+                            <a class="dropdown-item" href="{{ url_for('favorites', nomuser=nomuser, iduser=iduser, email=email) }}">my favourites</a>
+                            <a class="dropdown-item" href="logout">Log Out</a>
+                            </div>
+                        </div> 
+                    </div>
+                </nav>
+                <div class="d-flex justify-content-between" style="margin-top:30px">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="/static/Tunisia.jpg" alt="Card image cap">
+                        <div class="card-body" style="background-image:url('/static/card.jpg')">
+                            <h5 class="card-title">Tunisia</h5>
+                            <p class="card-text">Tunisia is a North African country with Mediterranean coastline, rich history, diverse culture, and ancient ruins like Carthage</p>
+                            <button class="btn btn-primary" type="submit" name="city_button" value="Tunisia">Weather in Tunisia</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="/static/Paris.jpg" alt="Card image cap">
+                        <div class="card-body" style="background-image:url('/static/card.jpg')">
+                            <h5 class="card-title">Paris</h5>
+                            <p class="card-text">Paris is a cosmopolitan city known for its fashion, art, culture, and iconic landmarks like the Eiffel Tower</p>
+                            <button class="btn btn-primary" type="submit" name="city_button" value="Paris">Weather in Paris</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="/static/Sydney.jpg" alt="Card image cap">
+                        <div class="card-body" style="background-image:url('/static/card.jpg')">
+                            <h5 class="card-title">Sydney</h5>
+                            <p class="card-text">Sydney, a vibrant city in Australia, known for its iconic Opera House and stunning beaches, offers a diverse cultural experience</p>
+                            <button class="btn btn-primary" type="submit" name="city_button" value="Sydney">Weather in Sydney</button>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="/static/San Francisco.jpg" alt="Card image cap">
+                        <div class="card-body" style="background-image:url('/static/card.jpg')">
+                            <h5 class="card-title">San Francisco</h5>
+                            <p class="card-text">San Francisco: vibrant city by the bay, known for tech innovation, diverse culture, and iconic landmarks like the Golden Gate Bridge.</p>
+                            <button class="btn btn-primary" type="submit" name="city_button" value="San Francisco">Weather in San Francisco</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="wrap">
+                <form class="form" method="POST" action="/weatheridentifie">
+                    <input  type="hidden" name="nomuser" id="nomuser" value="{{ nom }}">
+                    <input  type="hidden" name="iduser" id="iduser" value="{{ iduser }}">
+                    <input  type="hidden" name="email" id="email" value="{{ email }}">
+                    <input   type="hidden" name="fav_cities" id="fav_cities" value="{{ fav_cities }}">
+                    <input type="text" id="latitude" placeholder="latitude" style="display: none;">
+                    <input type="text" id="longitude" placeholder="longitude" style="display: none;">
+                    <div style="display: inline-block;">
+                        <input type="text" id="cityname" name="cityname"placeholder="city" style="margin-left: -1cm; width: 85%;">
+                        <button type="submit" class="btn-sm btn-primary" style="width: 30%; vertical-align: middle;height: 8%;">Search</button>
+                    </div>
+                </form>
+                <div id="map"></div>
+            </div>
+            
+            <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+            <script src="https://unpkg.com/@geoapify/leaflet-address-search-plugin@^1/dist/L.Control.GeoapifyAddressSearch.min.js"></script>
+            <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+            <script>
+                let mapOptions = {
+                  center:[51.958, 9.141],
+                  zoom:10
+                }
+              
+                let map = new L.map('map' , mapOptions);
+              
+                let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+                map.addLayer(layer);
+              
+                let apikey="28bdf30ce3c342c88b5c6fc244f4ca67";
+                let marker = null;
+              
+                // Function to get city name using OpenStreetMap Nominatim API
+                function getCityName(lat, lng) {
+                let url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lng}`;
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                    let cityName = data.address.city || data.address.town || data.address.village || data.address.hamlet || '';
+                    document.getElementById('cityname').value = cityName;
+                    console.log(cityName);
+                    })
+                    .catch(error => console.error(error));
+                }
+              
+                const addressSearchControl = L.control.addressSearch(apikey, { 
+                  placeholder:"Enter an address here",
+                  resultCallback: (address) => {
+                    if(!address) {
+                      return;
+                    }
+                    if(marker !== null) {
+                      map.removeLayer(marker);
+                    }
+                    marker = L.marker([address.lat,address.lon]).addTo(map);
+                    map.setView([address.lat,address.lon],17);
+                    getCityName(address.lat, address.lon); // Call getCityName function
+                  }
+                });
+                map.addControl(addressSearchControl);
+              
+                map.on('click', (event) => {
+                    if(marker !== null) {
+                        map.removeLayer(marker);
+                    }
+                    marker = L.marker([event.latlng.lat, event.latlng.lng]).addTo(map);
+                    document.getElementById('latitude').value = event.latlng.lat;
+                    document.getElementById('longitude').value = event.latlng.lng;
+                    getCityName(event.latlng.lat, event.latlng.lng); // Call getCityName function
+                    });
+              </script>
+              <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+              <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+              <script>
+                $(document).ready(function(){
+                  $('.dropdown-toggle').dropdown();
+                });
+              </script>
+                            
+
+        </body>
+    </html>
+{% else %}
+    <p>Aucun utilisateur trouvé.</p>
+{% endif %}

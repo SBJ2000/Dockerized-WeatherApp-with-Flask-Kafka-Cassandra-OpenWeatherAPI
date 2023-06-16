@@ -1,0 +1,9 @@
+Flask
+requests
+kafka-python
+pandas
+numpy
+cassandra-driver
+flask-wtf
+cqlengine
+schedule

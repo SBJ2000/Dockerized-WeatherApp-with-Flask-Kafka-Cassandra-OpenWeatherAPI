@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Data</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('/static/background.jpg');
+            background-size: cover;
+            
+        }
+    </style>
+</head>
+<body>
+    {% if weather_data %}
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <div style="margin-left:20px;margin-top:7px;">
+            <span><img src="/static/icone.png" alt="Icon"width="50" height="50"></span>
+            <input style="margin-left: 570px;"class="form-control-sm mr-sm-2" type="search" placeholder="{{city}}" aria-label="Search" id="city" name="city" disabled>
+            <div class="btn-group"style="margin-left: 362px;">
+                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Account
+                </button>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-sm">
+                <a class="dropdown-item" href="signin">Log In</a>
+                <a class="dropdown-item" href="signup"> Sign Up</a>
+                </div>
+            </div> 
+        </div>
+    </nav>
+        <div class="card-deck" style="margin-top:30px;margin-left:120px;margin-right: 120px;">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="/static/Weather.jpg" alt="Card image cap">
+                <div class="container"style="background-image:url('/static/card.jpg')">
+                    <br>
+                    <div class="row">
+                      <div class="col-9">
+                            <h5 class="card-title">Weather</h5>
+                            <p class="card-text">The weather in {{ city }} is: {{ weather_data.weather }}</p>
+                      </div>
+                    </div> 
+                    <hr>
+                    <div class="row">
+                      <div class="col-6 col-md-4">   
+                        {% if weather_data.weather == 'Clear' %}             
+                        <img class="card-img-top" src="/static/picnic.png" alt="picnic image" style="width: 60px;height: 60px;">
+                        {% else %}
+                        <img class="card-img-top" src="/static/car-wash.png" alt="car image" style="width: 60px;height: 60px;">
+                        {% endif %}
+                      </div>
+                      {% if weather_data.weather == 'Clear' %}
+                      <div class="col-sm-6 col-md-8">We recommand going in a picnic with family & friends</div>
+                      {% else %}
+                      <div class="col-sm-6 col-md-8">It's not a god idea to wash your car today</div>
+                      {% endif %}
+                    </div> 
+                    <br> 
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="/static/Temperature.jpg" alt="Card image cap">
+                <div class="container"style="background-image:url('/static/card.jpg')">
+                    <br>
+                    <div class="row">
+                      <div class="col-9">
+                            <h5 class="card-title">Temperature</h5>
+                            <p class="card-text">The temperature in {{ city }} is: {{ weather_data.temp }}°C</p>
+                      </div>
+                    </div> 
+                    <hr>
+                    <div class="row">
+                      <div class="col-6 col-md-4">   
+                        {% if weather_data.temp > 35 %}             
+                        <img class="card-img-top" src="/static/beach.png" alt="beach image" style="width: 60px;height: 60px;">
+                        {% elif weather_data.temp < 10 %}
+                        <img class="card-img-top" src="/static/coffee.png" alt="cofee image" style="width: 61.5px;height: 61.5px;">
+                        {% else %}
+                        <img class="card-img-top" src="/static/walk.png" alt="walk image" style="width: 60px;height: 60px;">
+                        {% endif %}
+                      </div>
+                      {% if weather_data.temp > 35 %}
+                      <div class="col-sm-6 col-md-8">It's a nice day for beach</div>
+                      {% elif weather_data.temp < 10 %}
+                      <div class="col-sm-6 col-md-8">How about a Coffee, Netflix & Chill</div>
+                      {% else %}
+                      <div class="col-sm-6 col-md-8">It's nice day to take a walk</div>
+                      {% endif %}
+                    </div> 
+                    <br> 
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="/static/Humidity.jpg" alt="Card image cap">
+                <div class="container"style="background-image:url('/static/card.jpg')">
+                    <br>
+                    <div class="row">
+                      <div class="col-9">
+                            <h5 class="card-title">Humidity</h5>
+                            <p class="card-text">The humidity in {{ city }} is: {{ weather_data.humidity }}%</p>
+                      </div>
+                    </div> 
+                    <hr>
+                    <div class="row">
+                      <div class="col-6 col-md-4">                
+                        <img class="card-img-top" src="/static/jacket.png" alt="umbrella image" style="width: 60px;height: 60px;">
+                      </div>
+                      {% if weather_data.humidity > 60 %}
+                      <div class="col-sm-6 col-md-8">We recommand wearing your nice jacket today</div>
+                      {% elif weather_data.pressure < 30 %}
+                      <div class="col-sm-6 col-md-8">We do not recommand having heavy clothes today, it's a hot day</div>
+                      {% else %}
+                      <div class="col-sm-6 col-md-8">The weather is nice, but you can take a light jacket with you</div>
+                      {% endif %}
+                    </div> 
+                    <br> 
+                    <br><br>
+                </div>
+            </div>
+        </div>
+        <div class="card-deck" style="margin-top:30px;margin-left:300px;margin-right: 300px;">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="/static/Pressure.jpg" alt="Card image cap">
+                <div class="container"style="background-image:url('/static/card.jpg')">
+                    <br>
+                    <div class="row">
+                      <div class="col-9">
+                            <h5 class="card-title">Pressure</h5>
+                            <p class="card-text">The pressure in {{ city }} is: {{ weather_data.pressure }}hPa</p>
+                      </div>
+                    </div> 
+                      <hr>
+                    <div class="row">
+                      <div class="col-6 col-md-4">                
+                        <img class="card-img-top" src="/static/Gym.png" alt="umbrella image" style="width: 60px;height: 60px;">
+                      </div>
+                      {% if weather_data.pressure > 1050 %}
+                      <div class="col-sm-6 col-md-8">We do not recommand going to the Gym today</div>
+                      {% elif weather_data.pressure < 950 %}
+                      <div class="col-sm-6 col-md-8">We do not recommand going to the Gym today</div>
+                      {% else %}
+                      <div class="col-sm-6 col-md-8">You can enjoy going to the gym today</div>
+                      {% endif %}
+                    </div> 
+                    <br> 
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="/static/Precipitations.jpg" alt="Card image cap">
+                <div class="container"style="background-image:url('/static/card.jpg')">
+                    <br>
+                    <div class="row">
+                      <div class="col-9">
+                            <h5 class="card-title">Precipitation</h5>
+                            <p class="card-text">The precipitation in {{ city }} is: {{ weather_data.precipitation }}mm</p>
+                      </div>
+                    </div> 
+                      <hr>
+                    <div class="row">
+                      <div class="col-6 col-md-4">                
+                        <img class="card-img-top" src="/static/umbrella.png" alt="umbrella image" style="width: 60px;height: 60px;">
+                      </div>
+                      {% if weather_data.precipitation < 2 %}
+                      <div class="col-sm-6 col-md-8">We do not recommand using an umbrella</div>
+                      {% else %}
+                      <div class="col-sm-6 col-md-8">We recommand using an umbrella</div>
+                      {% endif %}
+                    </div> 
+                    <br> 
+                </div>
+            </div>
+        </div>
+    {% else %}
+    <div class="card" style="width: 18rem;margin-left:570px;margin-top: 200px;">
+        <img class="card-img-top" src="/static/nocityfound.jpg" alt="Card image cap">
+        <div class="container"style="background-image:url('/static/card.jpg')">
+            <br> 
+            <div class="row">
+              <div class="col-6 col-md-4">                
+                <img class="card-img-top" src="/static/nocity.png" alt="umbrella image" style="width: 60px;height: 60px;">
+              </div>
+              <div class="col-sm-6 col-md-8">No city with this name found</div>
+            </div> 
+            <br> 
+        </div>
+    </div>
+    {% endif %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+              <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+              <script>
+                $(document).ready(function(){
+                  $('.dropdown-toggle').dropdown();
+                });
+              </script>
+</body>
+</html>
