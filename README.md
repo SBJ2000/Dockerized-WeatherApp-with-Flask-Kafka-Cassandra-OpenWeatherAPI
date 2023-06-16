@@ -7,6 +7,14 @@ The application contains advanced features like email notifications, history, re
 All these technologies are included in a development environment based on Docker containers to facilitate implementation.
 The work is also devided into sprint and adapt the scrum methodologie.
 
-## Project Architecture :
-Befor going into the application, we need to understand correctly the architecture that the developer adapted to build his project, which is in this case:
+### Project Architecture :
+Before going into the application, we need to understand correctly the architecture that the developer adapted to build his project & what are the toold needed, which is in this case:
 ![Architecture](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/Architecture.png)
+
+### Users & roles :
+The application is designed for 2 types of users , and each of them has a specific privileges:
+![Users](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/Users.png)
+
+## Installation & Usage
+
+### Prerequisites:
