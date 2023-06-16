@@ -67,10 +67,10 @@ And for that he have to log in :
 ![Log In Interface](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/LogIn.png)
 
 That what an identified user see when he log in: 
-![User Interface](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/IUInterface.png)
+![User Interface](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/IUInterface.jpeg)
 
 And that's the interface when he search on a specific city:
-![Search Interface](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/Search.png)
+![Search Interface](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/Search.jpeg)
 
 He can consult his favorites cities:
 ![Fav Interface](https://github.com/SBJ2000/Dockerized-WeatherApp-with-Flask-Kafka-Cassandra-OpenWeatherAPI/blob/main/Images/Fav.png)
